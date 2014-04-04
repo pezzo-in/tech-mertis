@@ -5,7 +5,7 @@
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Pezzo</title>
+	<title>Florida</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -16,7 +16,6 @@
 	<!-- CSS
   ================================================== -->
 	<link rel="stylesheet" href="css/style.css" type="text/css"  media="all">
-	
 	<link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Roboto+Slab:300,400" rel="stylesheet" type="text/css">
 
 
@@ -58,28 +57,22 @@
 					</form>
 				</div>
         <ul id="nav">
-           <li><a href="index.html">Home</a>
+           <li class="current"><a href="index.html">Home</a>
             
           </li>
           <li><a  href="services.html">Services</a>
-            <ul>
-              <li><a href="services.html">Web and Mobile Solutions</a></li>
-              <li><a href="service2.html">Branding</a></li>
-              <li><a href="service3.html">Digital Marketing</a></li>
-              <li><a href="service4.html">Customer profile building></a></li>
-            </ul>
+            
           </li>
-           
-          </li>
-          <li class="current"><a href="portfolio.html">Portfolio</a>
+          <li><a href="portfolio-item.html">Portfolio</a>
               </li>
+          <li><a  href="ourteam.html">Team</a>
+            </li>
           
-          
-     <li><a  href="contact.html">Contact us</a>
+      <li><a  href="#">Contact us</a>
           <ul class="mega">
           <div class="one_third">
             <h4 class="subtitle">Contact Form</h4>
-        	<form action="#" method="post" class="frmContact">
+        		<form action="#" method="post" class="frmContact">
 						<input name="txtName" type="text" class="txbx" value="Name" />
 						<input name="txtEmail" type="text" class="txbx" value="Email" />
 						<input name="txtSubject" type="text" class="txbx" value="Subject" />
@@ -119,98 +112,150 @@
 </header>
 </div>
 <!-- end-header -->
-<section class="latest-works">   	
-<hr class="vertical-space1">
-<div class="icon-top-title aligncenter">
-<i class="icomoon-diamond-2"></i>
-<hr class="vertical-space1">
-<h1>Our Works</h1>
-<h4>Donec vestibulum facilisis turpis, vel ullamcorper dolor sodales id.<br>
-Vivamus nec enim blandit quam pulvinar vulputate.</h4>
-<br>
 
- <nav class="primary clearfix">
-      <div class="portfolioFilters">
-        <a href="#" class="selected" data-filter="*">All</a>
-        <a class="" href="#" data-filter=".web">Web Design</a>
-        <a class="" href="#" data-filter=".logg">Logo</a>
-        <a class="" href="#" data-filter=".video">Video</a>
-        <a class="" href="#" data-filter=".print">Print </a></div>
-    </nav>
+<section class="container page-content" >
+<hr class="vertical-space2">
+<div class="eleven columns portfolio-item">
+<h1>A Portfolio Item Example</h1>
+<h3 class="slight"> Maecenas sed justo varius velit imperdiet bibendum. Vivamus nec sapien massa, a imperdiet diam.</h3>
+</div>
+<div class="portfolio-item-dets">
+<div class="portfolio-item-like-box">
+<i class="icomoon-heart-7"></i><br>
+<input type="hidden" id="pageID" value="1"/>
+<span>0</span>
+</div>
+<script>
+jQuery(document).ready(function(){
+var pageID = jQuery('#pageID').val();
 
+jQuery.ajax({url:"php/get-likes.php?pageid="+pageID ,success:function(result){
+    jQuery('.portfolio-item-like-box span').text(result);
+  }});
 
+jQuery.ajax({url:"php/get-likes.php?isliked&pageid="+pageID ,success:function(result){
+    if( 'yes' == result )
+	jQuery('.portfolio-item-like-box i').addClass('liked');
+  }});
+  
+ jQuery('.portfolio-item-like-box i').click(function(){
+ 
+ jQuery.ajax({url:"php/like.php?pageid="+pageID ,success:function(result){
+    if( '1' == result ){
+	jQuery('.portfolio-item-like-box i').addClass('liked');
+	jQuery.ajax({url:"php/get-likes.php?pageid="+pageID ,success:function(result){
+		jQuery('.portfolio-item-like-box span').text(result);
+	}});
+	
+	}else alert(result);
+  }});
+ 
+ });
+});
+</script>
+<div class="portfolio-item-detail-box">
+Date: 21 October 2013
+<hr>
+Cat: <a href="#" >Design</a>, <a href="#" >Video</a>
+</div>
 </div>
 <hr class="vertical-space2">
+<div class="sixteen columns">
+<div class="flexslider">
+          <ul class="slides">
+            <li>
+  	    	     <img src="images/portfo/wide-port1.jpg" alt="">
+				 </li>
+  	    		<li>
+  	    	     <img src="images/portfo/wide-port2.jpg" alt="">
+				 </li>
+  	    		<li>
+  	    	     <img src="images/portfo/wide-port3.jpg" alt="">
+				 </li>
+  
+          </ul>
+        </div>
 
-<div class="portfolio">
+</div>
+<article class="sixteen columns" >
 
-  <figure class="portfolio-item  video print ">
-        <div class="img-item">  <img src="images/portfo/portx4.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx4.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-         
-  <figure class="portfolio-item  web logg ">
-        <div class="img-item">  <img src="images/portfo/portx1.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx1.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item  web logg ">
-        <div class="img-item">  <img src="images/portfo/portx2.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx2.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item  print video ">
-        <div class="img-item">  <img src="images/portfo/portx3.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx3.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item  logg print ">
-        <div class="img-item">  <img src="images/portfo/portx5.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx5.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item  video web ">
-        <div class="img-item">  <img src="images/portfo/portx13.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx13.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item  logg print ">
-        <div class="img-item">  <img src="images/portfo/portx7.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx7.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-         
-  <figure class="portfolio-item  web ">
-        <div class="img-item">  <img src="images/portfo/portx8.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx8.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item logg ">
-        <div class="img-item">  <img src="images/portfo/portx9.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx9.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item video ">
-        <div class="img-item">  <img src="images/portfo/portx10.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx10.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item web ">
-        <div class="img-item">  <img src="images/portfo/portx11.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx11.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-	    <figure class="portfolio-item  video">
-        <div class="img-item">  <img src="images/portfo/portx12.jpg" alt="" >
-		<div class="zoomex2"><h6>Spoilt for choice<br><small>29 oct 2014</small></h6><a href="images/portfo/portx12.jpg" class="prettyPhoto zoomlink1" ><i class="icomoon-plus"></i></a><a href="portfolio-item.html" class="zoomlink2" ><i class="icomoon-arrow-right-5"></i></a></div></div>
-      </figure>
-      <!-- end-portfolio-item-->
-			 </div>	
-	<script src="isotope/isotope.js"></script>
-    <script src="isotope/isotope-custom.js"></script>
-    <script src="js/jquery.prettyPhoto.js" ></script>
-</section>
+<h5 class="helvetic5">Project Detail</h5>
+<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.</p>
+<p>
+Integer commodo tristique odio, quis fringilla ligula aliquet ut. Maecenas sed justo varius velit imperdiet bibendum. Vivamus nec sapien massa, a imperdiet diam. Aliquam erat volutpat. et rutrum. Integer commodo tristique odio, quis fringilla ligula aliquet ut. </p>
+
+
+</article>
+
+<div class="clear"></div>
+    <!-- Latest Projects - Start -->
+    <hr class="vertical-space1">
+  </section>
+  <section class="related-works">
+    <div class="container">
+      <div class="sixteen columns">
+        <h4 class="subtitle">Related Works </h4>
+      </div>
+      <div class="clear"></div>
+      <div class="jcarousel-container">
+        <div class="jcarousel-clip">
+          <ul id="latest-projects" class="jcarousel-list">
+            <li class="portfolio-item four columns jcarousel-item">
+              <a href="portfolio-item.html"> <img src="images/portfo/portx1.jpg" alt="">
+                <h5><strong>Portfolio Title</strong> </h5></a>
+                <p>10 MAY 2013 - <a href="#" >DESIGN</a>, <a href="#" >Print</a></p>
+              <!-- end-portfolio-item-->
+            </li>
+            <li class="portfolio-item four columns jcarousel-item">
+              <a href="portfolio-item.html"> <img src="images/portfo/portx2.jpg" alt="">
+                <h5><strong>Portfolio Title</strong> </h5></a>
+                <p>10 MAY 2013 - <a href="#" >DESIGN</a>, <a href="#" >Print</a></p>
+              <!-- end-portfolio-item-->
+            </li>
+            <li class="portfolio-item four columns jcarousel-item">
+              <a href="portfolio-item.html"> <img src="images/portfo/portx3.jpg" alt="">
+                <h5><strong>Portfolio Title</strong> </h5></a>
+                <p>10 MAY 2013 - <a href="#" >DESIGN</a>, <a href="#" >Print</a></p>
+              <!-- end-portfolio-item-->
+            </li>
+            <li class="portfolio-item four columns jcarousel-item">
+              <a href="portfolio-item.html"> <img src="images/portfo/portx4.jpg" alt="">
+                <h5><strong>Portfolio Title</strong> </h5></a>
+                <p>10 MAY 2013 - <a href="#" >DESIGN</a>, <a href="#" >Print</a></p>
+              <!-- end-portfolio-item-->
+            </li>
+            <li class="portfolio-item four columns jcarousel-item">
+              <a href="portfolio-item.html"> <img src="images/portfo/portx5.jpg" alt="">
+                <h5><strong>Portfolio Title</strong> </h5></a>
+                <p>10 MAY 2013 - <a href="#" >DESIGN</a>, <a href="#" >Print</a></p>
+              <!-- end-portfolio-item-->
+            </li>
+            <li class="portfolio-item four columns jcarousel-item">
+              <a href="portfolio-item.html"> <img src="images/portfo/portx6.jpg" alt="">
+                <h5><strong>Portfolio Title</strong> </h5></a>
+                <p>10 MAY 2013 - <a href="#" >DESIGN</a>, <a href="#" >Print</a></p>
+              <!-- end-portfolio-item-->
+            </li>
+            <li class="portfolio-item four columns jcarousel-item">
+              <a href="portfolio-item.html"> <img src="images/portfo/portx7.jpg" alt="">
+                <h5><strong>Portfolio Title</strong> </h5></a>
+                <p>10 MAY 2013 - <a href="#" >DESIGN</a>, <a href="#" >Print</a></p>
+            </li>
+            <!-- end-portfolio-item-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- home-portfolio -->
+  <section class="container">
+    <hr class="vertical-space2">
+    <!-- Latest Projects-end -->
+
+
+<hr class="vertical-space2">
+</section><!-- container -->
+
 	
 	
 <footer id="footer">
@@ -264,7 +309,7 @@ Vivamus nec enim blandit quam pulvinar vulputate.</h4>
 	  
 	  <div class="one-third column contact-inf">
         <h5 class="subtitle">Contact Info</h5>
-     	<span><i class="icomoon-home"></i> 2014 Main St New York, NY 10044</span>
+     	<span><i class="icomoon-home"></i> 2013 Main St New York, NY 10044</span>
      	<span><i class="icomoon-phone"></i> +1 234 5678</span>
      	<span><i class="icomoon-envelop-2"></i> info@yoursite.com</span>
      	<form class="frmContact" action="#">
@@ -280,7 +325,7 @@ Vivamus nec enim blandit quam pulvinar vulputate.</h4>
     <!-- end-footer-in -->
     <section class="footbot">
 	<div class="container">
-      <div class="footer-navi">© 2014 <a href="">Pezzo Studio</a> All Rights Reserved.</div>
+      <div class="footer-navi">© 2013 <a href="">Florida Studio</a> All Rights Reserved.</div>
       <div class="socailfollow">
 		        	<a href="#" class="facebook"><i class="icomoon-facebook"></i></a>
 		        	<a href="#" class="twitter"><i class="icomoon-twitter"></i></a>
@@ -308,9 +353,10 @@ Vivamus nec enim blandit quam pulvinar vulputate.</h4>
 <script src="js/bootstrap-dropdown.js"></script>
 <script src="js/bootstrap-tab.js"></script>
 <script src="js/bootstrap-tooltip.js"></script>
-<script type="text/javascript" src="js/Pezzo-custom.js" ></script>
+<script type="text/javascript" src="js/florida-custom.js" ></script>
 <script src="js/jquery.prettyPhoto.js" ></script>
 <script type="text/javascript" src="js/jquery.sticky.js"></script>
 <script type="text/javascript" src="js/jquery.easy-pie-chart.js"></script>
+
 </body>
 </html>
